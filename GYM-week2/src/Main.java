@@ -1,8 +1,8 @@
 public class Main {  // IT-2502 Rinatuly Miras
     public static void main(String[] args) {
-        Member member1 = new Member(001, "Birzhan", 18, "Active");
-        Trainer trainer1 = new Trainer(001, "Gani", 7, "Fitness");
-        WorkoutSession workoutSession1 = new WorkoutSession(001, "Birzhan", "Gani", 500);
+        Member member1 = new Member(01, "Birzhan", 18, "Active");
+        Trainer trainer1 = new Trainer(01, "Gani", 7, "Fitness");
+        WorkoutSession workoutSession1 = new WorkoutSession(01, "Birzhan", "Gani", 500);
 
 
         System.out.println(member1.toString());
