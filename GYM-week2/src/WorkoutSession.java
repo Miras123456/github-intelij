@@ -1,68 +1,82 @@
 public class WorkoutSession {
     private int sessionId;
     private String memberName;
-    private String trainer;
+    private String trainerName;
     private int duration;
 
-    public WorkoutSession(int sessionId, String memberName, String trainer, int duration) {
-        this.sessionId = sessionId;
-        this.memberName = memberName;
-        this.trainer = trainer;
-        this.duration = duration;
+    public WorkoutSession(int sessionId, String memberName, String trainerName, int duration) {
+        this.setSessionId(sessionId);
+        this.setMemberName(memberName);
+        this.setTrainerName(trainerName);
+        this.setDuration(duration);
     }
 
     public int getSessionId() {
-        return sessionId;
-    }
-
-    public String getMemberName() {
-        return memberName;
-    }
-
-    public String getTrainer() {
-        return trainer;
-    }
-
-    public int getDuration() {
-        return duration;
+        return this.sessionId;
     }
 
     public void setSessionId(int sessionId) {
-        this.sessionId = sessionId;
+        if (sessionId > 0) {
+            this.sessionId = sessionId;
+        } else {
+            System.out.println("Session ID must be positive. Set to 1.");
+            this.sessionId = 1;
+        }
+    }
+
+    public String getMemberName() {
+        return this.memberName;
     }
 
     public void setMemberName(String memberName) {
-        this.memberName = memberName;
+        if (memberName != null && !memberName.trim().isEmpty()) {
+            this.memberName = memberName;
+        } else {
+            this.memberName = "Unknown";
+        }
     }
 
-    public void setTrainer(String trainer) {
-        this.trainer = trainer;
+    public String getTrainerName() {
+        return this.trainerName;
+    }
+
+    public void setTrainerName(String trainerName) {
+        if (trainerName != null && !trainerName.trim().isEmpty()) {
+            this.trainerName = trainerName;
+        } else {
+            this.trainerName = "Unknown";
+        }
+    }
+
+    public int getDuration() {
+        return this.duration;
     }
 
     public void setDuration(int duration) {
-        this.duration = duration;
+        if (duration > 0) {
+            this.duration = duration;
+        } else {
+            System.out.println("Duration must be positive. Set to 30.");
+            this.duration = 30;
+        }
     }
 
-
-    public String extend() {
-        double extraMinutes = duration / (duration * 0.05);
-        this.duration += extraMinutes;
-        return ("Session extended by " + extraMinutes + " minutes");
+    public void extend() {
+        int extraMinutes = (int) (this.duration * 0.05);
+        this.duration = this.duration + extraMinutes;
     }
 
     public String complete() {
-        return ("workout session " + sessionId + " completed!");
+        return "Workout session " + this.sessionId + " completed!";
     }
-
 
     @Override
     public String toString() {
         return "WorkoutSession{" +
-                "sessionId=" + sessionId +
-                ", memberName='" + memberName + '\'' +
-                ", trainer='" + trainer + '\'' +
-                ", duration=" + duration +
+                "sessionId=" + this.sessionId +
+                ", memberName='" + this.memberName + '\'' +
+                ", trainerName='" + this.trainerName + '\'' +
+                ", duration=" + this.duration +
                 '}';
     }
-
 }

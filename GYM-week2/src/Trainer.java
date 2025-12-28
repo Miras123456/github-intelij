@@ -5,60 +5,79 @@ public class Trainer {
     private String specialization;
 
     public Trainer(int trainerId, String name, int experience, String specialization) {
-        this.trainerId = trainerId;
-        this.name = name;
-        this.experience = experience;
-        this.specialization = specialization;
+        this.setTrainerId(trainerId);
+        this.setName(name);
+        this.setExperience(experience);
+        this.setSpecialization(specialization);
     }
 
     public int getTrainerId() {
-        return trainerId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getExperience() {
-        return experience;
-    }
-
-    public String getSpecialization() {
-        return specialization;
+        return this.trainerId;
     }
 
     public void setTrainerId(int trainerId) {
-        this.trainerId = trainerId;
+        if (trainerId > 0) {
+            this.trainerId = trainerId;
+        } else {
+            System.out.println("Trainer ID must be positive. Set to 1.");
+            this.trainerId = 1;
+        }
+    }
+
+    public String getName() {
+        return this.name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        if (name != null && !name.trim().isEmpty()) {
+            this.name = name;
+        } else {
+            System.out.println("Name cannot be empty. Set to 'Unknown'.");
+            this.name = "Unknown";
+        }
+    }
+
+    public int getExperience() {
+        return this.experience;
     }
 
     public void setExperience(int experience) {
-        this.experience = experience;
+        if (experience >= 0) {
+            this.experience = experience;
+        } else {
+            System.out.println("Experience cannot be negative. Set to 0.");
+            this.experience = 0;
+        }
+    }
+
+    public String getSpecialization() {
+        return this.specialization;
     }
 
     public void setSpecialization(String specialization) {
-        this.specialization = specialization;
+        if (specialization != null && !specialization.trim().isEmpty()) {
+            this.specialization = specialization;
+        } else {
+            System.out.println("Specialization not provided. Set to 'General'.");
+            this.specialization = "General";
+        }
     }
 
-
-    public boolean isExperienced() { // if trained has more than 4 years experience, he will be experienced
-        return experience >= 5;
+    public boolean isExperienced() {
+        return this.experience >= 5;
     }
 
-    public boolean canTeach() { // if trained has more than 1 year experience< he can teach members
-        return experience >= 2;
+    public boolean canTeach() {
+        return this.experience >= 2;
     }
 
     @Override
     public String toString() {
         return "Trainer{" +
-                "trainerId=" + trainerId +
-                ", name='" + name + '\'' +
-                ", experience=" + experience +
-                ", specialization='" + specialization + '\'' +
+                "trainerId=" + this.trainerId +
+                ", name='" + this.name + '\'' +
+                ", experience=" + this.experience +
+                ", specialization='" + this.specialization + '\'' +
                 '}';
     }
 }
