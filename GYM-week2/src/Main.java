@@ -3,161 +3,171 @@ import java.util.Scanner;
 
 public class Main {
 
-    private static ArrayList<Member> members = new ArrayList<>();
-    private static ArrayList<Trainer> trainers = new ArrayList<>();
-    private static ArrayList<WorkoutSession> sessions = new ArrayList<>();
+    static ArrayList<Member> members = new ArrayList<>();
+    static ArrayList<Trainer> trainers = new ArrayList<>();
+    static ArrayList<WorkoutSession> sessions = new ArrayList<>();
 
-    private static Scanner scanner = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
 
         boolean running = true;
 
         while (running) {
-            System.out.println("\n========== GYM SYSTEM ==========");
+            System.out.println("\n====== GYM SYSTEM ======");
             System.out.println("1. Add Member💫");
-            System.out.println("2. View All Members💫");
-            System.out.println("3. Add Trainer💫");
-            System.out.println("4. View All Trainers💫");
-            System.out.println("5. Add Workout Session💫");
-            System.out.println("6. View Workout Sessions💫");
-            System.out.println("0. Exit💫");
-            System.out.print("Enter choice🛐: ");
+            System.out.println("2. Add Trainer💫");
+            System.out.println("3. Add Workout Session💫");
+            System.out.println("4. View All Members💫");
+            System.out.println("5. View All Trainers💫");
+            System.out.println("6. View All Workouts💫");
+            System.out.println("0. Exit👋🏿");
+            System.out.print("Choose: ");
 
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+            int choice = sc.nextInt();
+            sc.nextLine();
 
-            if (choice == 1) {
-                addMember();
-            } else if (choice == 2) {
-                viewMembers();
-            } else if (choice == 3) {
-                addTrainer();
-            } else if (choice == 4) {
-                viewTrainers();
-            } else if (choice == 5) {
-                addWorkoutSession();
-            } else if (choice == 6) {
-                viewWorkoutSessions();
-            } else if (choice == 0) {
-                running = false;
-            } else {
-                System.out.println("Wrong choice👎🏿.");
+            switch (choice) {
+                case 1 -> addMember();
+                case 2 -> addTrainer();
+                case 3 -> addWorkout();
+                case 4 -> viewMembers();
+                case 5 -> viewTrainers();
+                case 6 -> viewWorkouts();
+                case 0 -> running = false;
+                default -> System.out.println("Wrong choice!👎🏿");
             }
         }
 
-        scanner.close();
-        System.out.println("Program finished. Bye 👋🏿.");
+        System.out.println("Program finished.✅");
     }
 
-    // there are members
-    private static void addMember() {
+    // MEMBER
+    static void addMember() {
         System.out.print("Member ID: ");
-        int id = scanner.nextInt();
-        scanner.nextLine();
+        int id = sc.nextInt();
+        sc.nextLine();
 
         System.out.print("Name: ");
-        String name = scanner.nextLine();
+        String name = sc.nextLine();
 
         System.out.print("Age: ");
-        int age = scanner.nextInt();
-        scanner.nextLine();
+        int age = sc.nextInt();
+        sc.nextLine();
 
         System.out.print("Membership type: ");
-        String type = scanner.nextLine();
+        String type = sc.nextLine();
 
         members.add(new Member(id, name, age, type));
-        System.out.println("Member added.");
+        System.out.println("Member added!✅");
     }
 
-    private static void viewMembers() {
+    static void viewMembers() {
         if (members.isEmpty()) {
-            System.out.println("No members found👎🏿.");
+            System.out.println("No members.❌");
             return;
         }
 
-        System.out.println("\nMEMBERS");
         for (Member m : members) {
-            System.out.println("ID: " + m.getMemberId());
-            System.out.println("Name: " + m.getName());
-            System.out.println("Age: " + m.getAge());
-            System.out.println("Membership: " + m.getMembershipType());
-            System.out.println("Active: " + (m.isActive() ? "Yes ✅" : "No ❌"));
-            System.out.println("-----------------");
+            System.out.println(m);
         }
     }
 
-    // there are trainers
-    private static void addTrainer() {
+    // TRAINER
+    static void addTrainer() {
         System.out.print("Trainer ID: ");
-        int id = scanner.nextInt();
-        scanner.nextLine();
+        int id = sc.nextInt();
+        sc.nextLine();
 
         System.out.print("Name: ");
-        String name = scanner.nextLine();
+        String name = sc.nextLine();
 
         System.out.print("Experience (years): ");
-        int exp = scanner.nextInt();
-        scanner.nextLine();
+        int exp = sc.nextInt();
+        sc.nextLine();
 
         System.out.print("Specialization: ");
-        String spec = scanner.nextLine();
+        String spec = sc.nextLine();
 
         trainers.add(new Trainer(id, name, exp, spec));
-        System.out.println("Trainer added.");
+        System.out.println("Trainer added!✅");
     }
 
-    private static void viewTrainers() {
+    static void viewTrainers() {
         if (trainers.isEmpty()) {
-            System.out.println("No trainers found👎🏿.");
+            System.out.println("No trainers.❌");
             return;
         }
 
-        System.out.println("\nTRAINERS");
         for (Trainer t : trainers) {
-            System.out.println("ID: " + t.getTrainerId());
-            System.out.println("Name: " + t.getName());
-            System.out.println("Experience: " + t.getExperience() + " years");
-            System.out.println("Specialization: " + t.getSpecialization());
-            System.out.println("Experienced: " + (t.isExperienced() ? "Yes ✅" : "No ❌"));
-            System.out.println("Can teach: " + (t.canTeach() ? "Yes ✅" : "No ❌"));
-            System.out.println("------------------");
+            System.out.println(t);
         }
     }
 
-    // there are workout sessions
-    private static void addWorkoutSession() {
+    // WORKOUT
+    static void addWorkout() {
+
+        if (members.isEmpty() || trainers.isEmpty()) {
+            System.out.println("Add members and trainers first!");
+            return;
+        }
+
+        System.out.println("Choose workout type:");
+        System.out.println("1. Cardio");
+        System.out.println("2. Strength");
+        System.out.println("3. Yoga");
+
+        int type = sc.nextInt();
+        sc.nextLine();
+
         System.out.print("Session ID: ");
-        int id = scanner.nextInt();
-        scanner.nextLine();
+        int id = sc.nextInt();
+        sc.nextLine();
 
-        System.out.print("Member name: ");
-        String memberName = scanner.nextLine();
-
-        System.out.print("Trainer name: ");
-        String trainerName = scanner.nextLine();
+        Member member = members.get(0);   // можно усложнить, но для учебы норм
+        Trainer trainer = trainers.get(0);
 
         System.out.print("Duration (minutes): ");
-        int duration = scanner.nextInt();
-        scanner.nextLine();
+        int duration = sc.nextInt();
+        sc.nextLine();
 
-        sessions.add(new WorkoutSession(id, memberName, trainerName, duration));
-        System.out.println("Workout session added.");
-    }
+        if (type == 1) {
+            System.out.print("Calories burned: ");
+            int cal = sc.nextInt();
+            sc.nextLine();
+            sessions.add(new CardioWorkout(id, member, trainer, duration, cal));
+        }
 
-    private static void viewWorkoutSessions() {
-        if (sessions.isEmpty()) {
-            System.out.println("No workout sessions found👎🏿.");
+        else if (type == 2) {
+            System.out.print("Weight used (kg): ");
+            int weight = sc.nextInt();
+            sc.nextLine();
+            sessions.add(new StrengthWorkout(id, member, trainer, duration, weight));
+        }
+
+        else if (type == 3) {
+            System.out.print("Difficulty level: ");
+            String level = sc.nextLine();
+            sessions.add(new YogaWorkout(id, member, trainer, duration, level));
+        }
+
+        else {
+            System.out.println("Wrong type!❌");
             return;
         }
 
-        System.out.println("\nWORKOUT SESSIONS");
-        for (WorkoutSession s : sessions) {
-            System.out.println("Session ID: " + s.getSessionId());
-            System.out.println("Member: " + s.getMemberName());
-            System.out.println("Trainer: " + s.getTrainerName());
-            System.out.println("Duration: " + s.getDuration() + " minutes");
-            System.out.println("-------------------------");
+        System.out.println("Workout added!✅");
+    }
+
+    static void viewWorkouts() {
+        if (sessions.isEmpty()) {
+            System.out.println("No workouts.❌");
+            return;
+        }
+
+        for (WorkoutSession w : sessions) {
+            w.start();
+            System.out.println(w);
         }
     }
 }
