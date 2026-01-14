@@ -120,7 +120,7 @@ public class Main {
         int id = sc.nextInt();
         sc.nextLine();
 
-        Member member = members.get(0);   // можно усложнить, но для учебы норм
+        Member member = members.get(0);
         Trainer trainer = trainers.get(0);
 
         System.out.print("Duration (minutes): ");
