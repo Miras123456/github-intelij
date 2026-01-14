@@ -35,7 +35,7 @@ public class Main {
             }
         }
 
-        System.out.println("Program finished.✅");
+        System.out.println("Program finished. Bye bye✅");
     }
 
     //member

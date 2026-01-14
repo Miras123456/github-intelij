@@ -4,7 +4,12 @@ public class YogaWorkout extends WorkoutSession {
 
     public YogaWorkout(int id, Member member, Trainer trainer, int duration, String level) {
         super(id, member, trainer, duration);
-        this.difficultyLevel = level;
+
+        if (level != null && !level.isEmpty()) {
+            this.difficultyLevel = level;
+        } else {
+            this.difficultyLevel = "Beginner";
+        }
     }
 
     @Override

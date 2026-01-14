@@ -4,7 +4,12 @@ public class StrengthWorkout extends WorkoutSession {
 
     public StrengthWorkout(int id, Member member, Trainer trainer, int duration, int weight) {
         super(id, member, trainer, duration);
-        this.weightUsed = weight;
+
+        if (weight > 0) {
+            this.weightUsed = weight;
+        } else {
+            this.weightUsed = 10;
+        }
     }
 
     @Override

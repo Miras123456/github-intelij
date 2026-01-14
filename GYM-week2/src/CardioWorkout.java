@@ -4,7 +4,12 @@ public class CardioWorkout extends WorkoutSession {
 
     public CardioWorkout(int id, Member member, Trainer trainer, int duration, int calories) {
         super(id, member, trainer, duration);
-        this.caloriesBurned = calories;
+
+        if (calories > 0) {
+            this.caloriesBurned = calories;
+        } else {
+            this.caloriesBurned = 100;
+        }
     }
 
     @Override
