@@ -2,15 +2,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-
     static ArrayList<Member> members = new ArrayList<>();
     static ArrayList<Trainer> trainers = new ArrayList<>();
     static ArrayList<WorkoutSession> sessions = new ArrayList<>();
-
     static Scanner sc = new Scanner(System.in);
-
     public static void main(String[] args) {
-
         boolean running = true;
 
         while (running) {
@@ -42,7 +38,7 @@ public class Main {
         System.out.println("Program finished.✅");
     }
 
-    // MEMBER
+    //member
     static void addMember() {
         System.out.print("Member ID: ");
         int id = sc.nextInt();
@@ -73,7 +69,7 @@ public class Main {
         }
     }
 
-    // TRAINER
+    //trainer
     static void addTrainer() {
         System.out.print("Trainer ID: ");
         int id = sc.nextInt();
@@ -104,7 +100,7 @@ public class Main {
         }
     }
 
-    // WORKOUT
+    //workout
     static void addWorkout() {
 
         if (members.isEmpty() || trainers.isEmpty()) {
