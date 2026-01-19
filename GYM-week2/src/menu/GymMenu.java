@@ -125,7 +125,7 @@ public class GymMenu implements Menu {
 
     private void addWorkout() {
         if (members.isEmpty() || trainers.isEmpty()) {
-            System.out.println("Add member and trainer first ❗");
+            System.out.println("Add member and trainer first ");
             return;
         }
 
