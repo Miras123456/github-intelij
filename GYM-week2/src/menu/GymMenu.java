@@ -170,7 +170,7 @@ public class GymMenu implements Menu {
 
         for (WorkoutSession w : sessions) {
             System.out.println("Type: " + w.getType());
-            w.start(); // POLYMORPHISM
+            w.start();
             System.out.println("---------------------");
         }
     }
