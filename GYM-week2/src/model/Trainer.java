@@ -14,10 +14,21 @@ public class Trainer {
         setSpecialization(specialization);
     }
 
-    public int getId() { return id; }
-    public String getName() { return name; }
-    public int getExperience() { return experience; }
-    public String getSpecialization() { return specialization; }
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getExperience() {
+        return experience;
+    }
+
+    public String getSpecialization() {
+        return specialization;
+    }
 
     public void setId(int id) {
         if (id <= 0)

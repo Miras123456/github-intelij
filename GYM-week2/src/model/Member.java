@@ -14,10 +14,21 @@ public class Member {
         setMembershipType(membershipType);
     }
 
-    public int getId() { return id; }
-    public String getName() { return name; }
-    public int getAge() { return age; }
-    public String getMembershipType() { return membershipType; }
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getMembershipType() {
+        return membershipType;
+    }
 
     public void setId(int id) {
         if (id <= 0)
@@ -43,3 +54,4 @@ public class Member {
         this.membershipType = type;
     }
 }
+
