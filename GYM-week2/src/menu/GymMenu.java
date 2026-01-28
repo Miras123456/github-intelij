@@ -1,7 +1,10 @@
 package menu;
 
 import model.*;
-import java.util.*;
+import database.MemberDAO;
+
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class GymMenu implements Menu {
 
@@ -9,6 +12,7 @@ public class GymMenu implements Menu {
     private ArrayList<Trainer> trainers = new ArrayList<>();
     private ArrayList<WorkoutSession> sessions = new ArrayList<>();
     private Scanner sc = new Scanner(System.in);
+    private MemberDAO memberDAO = new MemberDAO();
 
     @Override
     public void displayMenu() {
@@ -68,24 +72,15 @@ public class GymMenu implements Menu {
         System.out.print("Membership type: ");
         String type = sc.nextLine();
 
-        members.add(new Member(id, name, age, type));
+        Member m = new Member(id, name, age, type);
+        members.add(m);
+        memberDAO.insertMember(m);
+
         System.out.println("Member added 💫");
     }
 
     private void viewMembers() {
-        if (members.isEmpty()) {
-            System.out.println("No members found 👎🏿");
-            return;
-        }
-
-        System.out.println("\nMEMBERS");
-        for (Member m : members) {
-            System.out.println("ID: " + m.getId());
-            System.out.println("Name: " + m.getName());
-            System.out.println("Age: " + m.getAge());
-            System.out.println("Membership: " + m.getMembershipType());
-            System.out.println("-----------------");
-        }
+        memberDAO.getAllMembers();
     }
 
     private void addTrainer() {
@@ -125,7 +120,7 @@ public class GymMenu implements Menu {
 
     private void addWorkout() {
         if (members.isEmpty() || trainers.isEmpty()) {
-            System.out.println("Add member and trainer first ");
+            System.out.println("Add member and trainer first ⚠️");
             return;
         }
 
@@ -144,14 +139,12 @@ public class GymMenu implements Menu {
             int cal = sc.nextInt();
             sc.nextLine();
             w = new CardioWorkout(1, members.get(0), trainers.get(0), 60, cal);
-        }
-        else if (type == 2) {
+        } else if (type == 2) {
             System.out.print("Weight: ");
             int weight = sc.nextInt();
             sc.nextLine();
             w = new StrengthWorkout(1, members.get(0), trainers.get(0), 60, weight);
-        }
-        else if (type == 3) {
+        } else if (type == 3) {
             System.out.print("Meditation (true/false): ");
             boolean med = sc.nextBoolean();
             sc.nextLine();
