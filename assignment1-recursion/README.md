@@ -16,13 +16,13 @@ I applied recursion to solve problems with numbers, arrays, and strings.
 # Task 1 - Print Digits
 
 - Description: Prints each digit of a number using recursion.
-Screenshot:![img_3.png](img_3.png)
+Screenshot:![img.png](img.png)
 
 
 # Task 2 - Average of Elements
 
 - Description: Calculates sum recursively and finds average.
-Screenshot: ![img.png](img.png)
+Screenshot: ![img_2.png](img_1.png)
 
 
 # Task 3 - Prime Number Check
