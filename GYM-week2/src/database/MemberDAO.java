@@ -83,11 +83,9 @@ public class MemberDAO {
     public boolean deleteMember(int id) {
         String sql = "DELETE FROM member WHERE member_id=?";
         try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
-
+        PreparedStatement ps = conn.prepareStatement(sql))  {
             ps.setInt(1, id);
             return ps.executeUpdate() > 0;
-
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
@@ -96,21 +94,15 @@ public class MemberDAO {
 
     public List<Member> searchByName(String name) {
         List<Member> list = new ArrayList<>();
-        String sql = "SELECT * FROM member WHERE LOWER(name) LIKE LOWER(?)";
-
+        String sql = "SELECT * FROM member WHERE name LIKE ?";
         try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
-
-            ps.setString(1, "%" + name + "%");
+        PreparedStatement ps = conn.prepareStatement(sql)){
+            ps.setString(1, "%"+name+"%");
             ResultSet rs = ps.executeQuery();
-
             while (rs.next()) {
-                list.add(new Member(
-                        rs.getInt("member_id"),
-                        rs.getString("name"),
-                        rs.getInt("age"),
-                        rs.getString("membership_type")));
+                list.add(new Member());
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
