@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="27e51307-ad99-46f9-a92e-eb907ef5a0ee" name="Changes" comment="week 8" />
+    <list default="true" id="27e51307-ad99-46f9-a92e-eb907ef5a0ee" name="Changes" comment="week 8">
+      <change afterPath="$PROJECT_DIR$/../assignment2/src/structures/defence.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6fce0426-cba4-4e7b-8f6e-0811b916cd32.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6fce0426-cba4-4e7b-8f6e-0811b916cd32/storage_v2/_src_/database/gym_db.gkGftg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6fce0426-cba4-4e7b-8f6e-0811b916cd32/storage_v2/_src_/database/gym_db.gkGftg/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6fce0426-cba4-4e7b-8f6e-0811b916cd32/storage_v2/_src_/database/gym_db.gkGftg/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6fce0426-cba4-4e7b-8f6e-0811b916cd32/storage_v2/_src_/database/gym_db.gkGftg/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../github-intelij" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -108,6 +118,8 @@
       <workItem from="1770571788234" duration="1000" />
       <workItem from="1774170169802" duration="77000" />
       <workItem from="1774353690556" duration="34000" />
+      <workItem from="1778328884496" duration="27000" />
+      <workItem from="1778328920422" duration="2000" />
     </task>
     <task id="LOCAL-00001" summary="week2">
       <option name="closed" value="true" />
