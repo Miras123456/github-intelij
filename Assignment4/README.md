@@ -103,3 +103,78 @@ DFS does not guarantee the shortest path and may cause deep recursion.
 - This assignment improved understanding of graph structures and traversal algorithms.
 - BFS and DFS use different traversal strategies, but both are important for graph processing.
 - The most challenging part was implementing traversal correctly using visited vertices.
+
+# Bonus Task: Dijkstra's Algorithm (Shortest Path)
+
+## Task Description
+Implement Dijkstra's Algorithm to find the shortest path from a starting vertex to all other vertices in a weighted graph.
+
+## Implementation Details
+
+### What I Added
+
+1. **Edge Weight Support** - Edge class now has a `weight` field
+2. **Weighted Graph Structure** - Graph stores weighted edges in adjacency list
+3. **Dijkstra's Algorithm** - Method `void dijkstra(int start)`
+
+# Why This Approach?
+- Simple arrays instead of priority queue (as allowed in requirements)
+- Time complexity: O(V²) where V = number of vertices
+- Space complexity: O(V)
+
+# How Dijkstra Works (Step by Step)
+## The Process:
+1. Set distance to START vertex = 0, all others = ∞ (infinity)
+2. Mark all vertices as UNVISITED
+3. Repeat until all vertices visited:
+- Pick UNVISITED vertex with SMALLEST distance
+- Mark it as VISITED
+- Check all neighbors: can we get a SHORTER path through this vertex?
+- If yes, UPDATE the neighbor's distance
+
+Step 1:
+Distances: [0, 4, 2, ∞, ∞]
+
+Visited:   [✓, ✗, ✗, ✗, ✗]
+
+Explanation:
+
+[0, 4, 2, ∞, ∞] = distances from vertex 0
+
+Vertex 0: distance 0 (start vertex)
+
+Vertex 1: distance 4 (direct edge 0→1 weight 4)
+
+Vertex 2: distance 2 (direct edge 0→2 weight 2)
+
+Vertex 3: ∞ (not reachable yet)
+
+Vertex 4: ∞ (not reachable yet)
+
+[✓, ✗, ✗, ✗, ✗] = visited vertices
+
+Vertex 0: ✓ (processed)
+
+Others: ✗ (not processed yet)
+
+What happened: Selected vertex 0 (smallest distance), marked visited, updated neighbors (1 and 2)
+
+# DIJKSTRA OUTPUT:
+## Test 1:
+![img_3.png](img_3.png)
+![img_4.png](img_4.png)
+
+---
+## Test 2:
+![img_5.png](img_5.png)
+![img_6.png](img_6.png)
+
+---
+## Test 3:
+![img_7.png](img_7.png)
+![img_8.png](img_8.png)
+
+---
+## Test 4:
+![img_9.png](img_9.png)
+![img_10.png](img_10.png)

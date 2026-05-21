@@ -2,10 +2,18 @@ public class Edge {
 
     private Vertex source;
     private Vertex destination;
+    private int weight;  // Added weight field
 
     public Edge(Vertex source, Vertex destination) {
         this.source = source;
         this.destination = destination;
+        this.weight = 1;  // Default weight
+    }
+
+    public Edge(Vertex source, Vertex destination, int weight) {
+        this.source = source;
+        this.destination = destination;
+        this.weight = weight;
     }
 
     public Vertex getSource() {
@@ -16,8 +24,16 @@ public class Edge {
         return destination;
     }
 
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
     @Override
     public String toString() {
-        return source + " -> " + destination;
+        return source + " -> " + destination + " (weight: " + weight + ")";
     }
 }
