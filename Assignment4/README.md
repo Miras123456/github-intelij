@@ -55,9 +55,9 @@ Steps:
 - Maze solving
 ---
 # Experimental Results
-1. ![img.png](img.png)
-2. ![img_1.png](img_1.png)
-3.  ![img_2.png](img_2.png)
+1. ![img.png](docs/img.png)
+2. ![img_1.png](docs/img_1.png)
+3.  ![img_2.png](docs/img_2.png)
 
 ---
 
@@ -161,20 +161,20 @@ What happened: Selected vertex 0 (smallest distance), marked visited, updated ne
 
 # DIJKSTRA OUTPUT:
 ## Test 1:
-![img_3.png](img_3.png)
-![img_4.png](img_4.png)
+![img_3.png](docs/img_3.png)
+![img_4.png](docs/img_4.png)
 
 ---
 ## Test 2:
-![img_5.png](img_5.png)
-![img_6.png](img_6.png)
+![img_5.png](docs/img_5.png)
+![img_6.png](docs/img_6.png)
 
 ---
 ## Test 3:
-![img_7.png](img_7.png)
-![img_8.png](img_8.png)
+![img_7.png](docs/img_7.png)
+![img_8.png](docs/img_8.png)
 
 ---
 ## Test 4:
-![img_9.png](img_9.png)
-![img_10.png](img_10.png)
+![img_9.png](docs/img_9.png)
+![img_10.png](docs/img_10.png)
